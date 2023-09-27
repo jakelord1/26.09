@@ -86,7 +86,7 @@ bool Queue::IsFull()
 
 int Queue::GetCount()
 {
-	// Количество присутствующих в стеке элементов
+	// Количество присутствующих в очереди элементов
 	return QueueLength;
 }
 
@@ -115,8 +115,8 @@ int Queue::Extract()
 		Wait[QueueLength - 1] = temp;
 
 		//вернуть первый(нулевой)
-		return temp;
-		//return 1;
+		//return temp;
+		return 1;
 	}
 
 	else // Если в стеке элементов нет
@@ -128,58 +128,24 @@ void main()
 	srand(time(0));
 
 	//создание очереди
-	Queue obj1(25);
-	Queue obj2(25);
-	Queue obj3(25);
+	Queue QU(25);
 
 	//заполнение части элементов
-	for (int i = 0; i < 15; i++) {
-		obj1.Add(1+rand() % 3);
-	}
-	for (int i = 0; i < 15; i++) {
-		obj2.Add(1+rand() % 3);
-	}
-	for (int i = 0; i < 15; i++) {
-		obj3.Add(1+rand() % 3);
+	for (int i = 0; i < 5; i++) {
+		QU.Add(rand() % 50);
 	}
 	//показ очереди
-	char d = ' ';
-	int a = 0, b = 0, c = 0;
-	do {
-		for (size_t i = 0; i < 10; i++)
-		{
-			obj1.Extract();
-		}
-		for (size_t i = 0; i < 15; i++)
-		{
-			obj2.Extract();
-		}
-		for (size_t i = 0; i < 17; i++)
-		{
-			obj3.Extract();
-		}
-		obj1.Show();
-		obj2.Show();
-		obj3.Show();
-		cout << '^';
-		a = obj1.Extract();
-		b = obj2.Extract();
-		c = obj3.Extract();
-		cout << endl << a << ' ' << b << ' ' << c << endl;
-		if (a == b == c) {
-		cout << "You won!\n";
-		}
-		cout << "Roll?\n(0 to exit)\n";
-		cin >> d;
-		system("cls");
-	} while (d != '0');
-	
-		
-	
+	QU.Show();
 
-	
-	
-	
+	//извлечение элемента
+	QU.Extract();
+
+	//показ очереди
+	QU.Show();
+	QU.Extract();
+
+	//показ очереди
+	QU.Show();
 }
 
 

@@ -90,7 +90,7 @@ bool QueuePriority::IsFull()
 
 int QueuePriority::GetCount()
 {
-	// Количество присутствующих в стеке элементов
+	// Количество присутствующих в очереди элементов
 	return QueueLength;
 }
 
@@ -155,7 +155,7 @@ void main()
 
 		// значения от 0 до 99 (включительно)
 		// и приоритет от 0 до 11 (включительно)
-		QUP.Add(rand() % 100, rand() % 12);
+		QUP.Add(rand() % 100, rand() % 12+1);
 	}
 	//показ очереди
 	QUP.Show();

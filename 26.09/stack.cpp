@@ -5,7 +5,7 @@ using namespace std;
 class Stack // LIFO
 {
 	// Нижняя и верхняя границы стека
-	enum { EMPTY = -1, FULL = 20 };// const int EMPTY=-1, FULL=20;
+	enum { EMPTY = -1, FULL = 20 };  // const int EMPTY=-1, FULL=20;
 	// Массив для хранения данных
 	char st[FULL + 1];
 	// Указатель на вершину стека
@@ -90,17 +90,19 @@ char Stack::Pop()
 void main()
 {
 	srand(time(0));
+
 	Stack ST;
+
 	ST.Push('A');
 	ST.Push('B');
 	ST.Push('C');
 	ST.Push('D');
 	ST.Print();
 
-	ST.Pop();
+char r = ST.Pop();
+cout << r << endl;
 	ST.Print();
 	ST.Clear();
-	ST.Pop();
-	
+	ST.Print();	
 }
 
